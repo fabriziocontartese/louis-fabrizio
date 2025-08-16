@@ -1,16 +1,22 @@
-import { useState } from 'react'
 import Navbar from './components/Navbar'
-import Sidebar from './components/Sidebar'
 import Footer from './components/Footer'
-import './App.css'
+import BookPage from './pages/BookPage'
+import RecipePage from './pages/RecipePage'
+import AboutPage from './pages/AboutPage'
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
-
   return (
     <>
       <Navbar />
-      <Sidebar />
-      <Footer />
+      <div className="pages">
+        <Routes>
+          <Route path="/" element={<BookPage />} />
+          <Route path="/recipes/:recipeId" element={<RecipePage />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
+        <Footer />
+      </div>
     </>
   )
 }
