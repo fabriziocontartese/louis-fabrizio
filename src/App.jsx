@@ -1,6 +1,6 @@
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import BookPage from './pages/BookPage'
+import RecipesPage from './pages/RecipesPage'
 import RecipePage from './pages/RecipePage'
 import AboutPage from './pages/AboutPage'
 import { Routes, Route } from 'react-router-dom'
@@ -11,7 +11,7 @@ function App() {
       <Navbar />
       <div className="pages">
         <Routes>
-          <Route path="/" element={<BookPage />} />
+          <Route path="/" element={<RecipesPage />} />
           <Route path="/recipes/:mealId" element={<RecipePage />} />
           <Route path="/about" element={<AboutPage />} />
         </Routes>
