@@ -250,3 +250,43 @@
     cursor: pointer;
   }
   
+
+  /* ───────────────────────────────────────────
+     Book Page
+  ────────────────────────────────────────────*/
+.bookPage {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.recipeCard {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.recipeCardId {
+  font-weight: bold;
+  min-width: 50px;
+}
+
+.recipeCardTitle {
+  flex: 1;
+}
+
+.recipeCard img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: #eee;
+}

@@ -1,13 +1,18 @@
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom";
 
 function RecipePage() {
+  const { Meal_ID, Meal_Name } = useParams();
+
   return (
     <>
-      <Link key={}></Link>
-        <h1>PLACEHOLDER FOR RECIPE PAGE!</h1>
+      <Link to="/">Back to Home</Link>
+      <h1>Recipe for {Meal_Name}</h1>
+      <Link to={`/recipes/${Meal_ID}/edit`} className="recipeCardEdit">
+        Edit
+      </Link>
     </>
-    
-    )
+  );
 }
 
-export default RecipePage
+export default RecipePage;
+
