@@ -299,18 +299,13 @@
     cursor: pointer;
   }
   
- /* ───────────────────────────────────────────
-   Book Page
+/* ───────────────────────────────────────────
+   Book Page Cards (dark theme fix)
 ────────────────────────────────────────────*/
-.bookPage {
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
-
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 16px;
+  gap: 20px;
 }
 
 .recipeCard {
@@ -319,17 +314,33 @@
   align-items: center;
   text-align: center;
 
-  background: #fff;
-  border: 1px solid #ccc;
+  background: rgba(255, 255, 255, 0.04); /* subtle dark card */
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 16px;
 
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    border-color 0.15s ease, background 0.15s ease;
 }
 
 .recipeCard:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.recipeCardTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 4px;
+  color: #fff; /* bright white text */
+}
+
+.recipeCardId {
+  font-size: 0.9rem;
+  color: #bbb; /* muted gray */
+  margin-bottom: 8px;
 }
 
 .recipeCard img {
@@ -337,22 +348,17 @@
   height: 140px;
   object-fit: cover;
   border-radius: 8px;
-  background-color: #eee;
+  background-color: #222;
   margin-bottom: 12px;
 }
 
-.recipeCardTitle {
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin: 0 0 4px;
-}
-
-.recipeCardId {
+.recipeCardActions a {
   font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 8px;
+  font-weight: 500;
+  color: #2e7cf6; /* accent blue */
+  text-decoration: none;
 }
 
-.recipeCardActions {
-  margin-top: auto;
+.recipeCardActions a:hover {
+  text-decoration: underline;
 }
