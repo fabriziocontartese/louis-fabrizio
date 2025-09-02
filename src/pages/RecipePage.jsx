@@ -2,19 +2,23 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 function RecipePage() {
-  const { mealId } = useParams(); // route should be /recipes/:mealId
+  const { mealId } = useParams();
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("/recipes.json")
       .then((res) => res.json())
-      .then((data) => {
-        setRecipes(data);
+      .then((builtin) => {
+        const raw = localStorage.getItem("userRecipes");
+        const user = raw ? JSON.parse(raw) : [];
+        setRecipes([...(builtin || []), ...user]);
         setLoading(false);
       })
-      .catch((err) => {
-        console.error("Failed to load recipes:", err);
+      .catch(() => {
+        const raw = localStorage.getItem("userRecipes");
+        const user = raw ? JSON.parse(raw) : [];
+        setRecipes(user);
         setLoading(false);
       });
   }, []);

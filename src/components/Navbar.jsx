@@ -12,7 +12,7 @@ function Navbar() {
           <Link to="/">
             <button className="nav-button">Book</button>
           </Link>
-          <Link to="/recipes">
+          <Link to="/new-recipe">
             <button className="nav-button">New Recipe</button>
           </Link>
           <Link to="/about">
