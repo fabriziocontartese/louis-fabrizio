@@ -38,7 +38,7 @@ function RecipePage() {
         ))}
       </ul>
 
-      <Link to="/recipes">← Back to all recipes</Link>
+      <Link to="/">← Back to all recipes</Link>
     </div>
   );
 }

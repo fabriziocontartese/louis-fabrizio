@@ -1,6 +1,6 @@
 
 
-function RecipesPage() {
+function BookPage() {
   return (
     <>
         <h1>PLACEHOLDER FOR BOOK PAGE!</h1>
@@ -8,4 +8,4 @@ function RecipesPage() {
   )
 }
 
-export default RecipesPage
+export default BookPage
