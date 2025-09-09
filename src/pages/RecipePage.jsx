@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
+
 function RecipePage() {
   const { mealId } = useParams();
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
+
+
 
   useEffect(() => {
     fetch("/recipes.json")
@@ -24,15 +27,24 @@ function RecipePage() {
   }, []);
 
   if (loading) return <h1>Loading…</h1>;
-
-  const recipe = recipes.find((r) => r.Meal_ID === mealId);
+// convert params into number
+  const recipeId = Number(mealId);
+  const recipe = recipes.find((r) => r.Meal_ID === recipeId);
 
   if (!recipe) return <h1>Recipe not found</h1>;
 
   return (
     <div>
-      <h1>{recipe.Meal_Name}</h1>
-
+      <div  className='recipe-heading'>
+        <h1 className='title'>{recipe.Meal_Name}</h1>
+        <Link to={`/recipes/${recipe.Meal_ID}/edit`}>
+          <img 
+          src="/edit-icon.png" 
+          alt="edit"
+          className="edit-icon-img"
+          />
+        </Link>
+      </div>
       <ul>
         {recipe.Ingredients.map((ing, i) => (
           <li key={i}>
@@ -42,7 +54,9 @@ function RecipePage() {
         ))}
       </ul>
 
-      <Link to="/">← Back to all recipes</Link>
+      <div className="recipe-page-nav">
+        <Link to="/">← Back to all recipes</Link>
+      </div>
     </div>
   );
 }

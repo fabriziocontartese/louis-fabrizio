@@ -1,6 +1,6 @@
 [
     {
-      "Meal_ID": "01",
+      "Meal_ID": 1,
       "Meal_Name": "Pizza",
       "Ingredients": [
         { "Ingredient_Name": "Champignons", "Weight_g": 100 },
@@ -11,7 +11,7 @@
       ]
     },
     {
-      "Meal_ID": "02",
+      "Meal_ID": 2,
       "Meal_Name": "Curry",
       "Ingredients": [
         { "Ingredient_Name": "Carrots", "Weight_g": 100 },
@@ -27,7 +27,7 @@
       ]
     },
     {
-      "Meal_ID": "03",
+      "Meal_ID": 3,
       "Meal_Name": "Sushi",
       "Ingredients": [
         { "Ingredient_Name": "Carrot", "Weight_g": 400 },
@@ -41,7 +41,7 @@
       ]
     },
     {
-      "Meal_ID": "04",
+      "Meal_ID": 4,
       "Meal_Name": "Bean Wraps",
       "Ingredients": [
         { "Ingredient_Name": "Carrots", "Weight_g": 100 },
@@ -58,7 +58,7 @@
       ]
     },
     {
-      "Meal_ID": "05",
+      "Meal_ID": 5,
       "Meal_Name": "Lasagna",
       "Ingredients": [
         { "Ingredient_Name": "Carrots", "Weight_g": 200 },
@@ -74,7 +74,7 @@
       ]
     },
     {
-      "Meal_ID": "06",
+      "Meal_ID": 6,
       "Meal_Name": "Chicken Wok",
       "Ingredients": [
         { "Ingredient_Name": "Carrots", "Weight_g": 100 },
@@ -90,7 +90,7 @@
       ]
     },
     {
-      "Meal_ID": "07",
+      "Meal_ID": 7,
       "Meal_Name": "Lentil Sausage",
       "Ingredients": [
         { "Ingredient_Name": "Onions", "Weight_g": 100 },
@@ -103,7 +103,7 @@
       ]
     },
     {
-      "Meal_ID": "08",
+      "Meal_ID": 8,
       "Meal_Name": "Spinach Quinoa Salad",
       "Ingredients": [
         { "Ingredient_Name": "Spinach leaves", "Weight_g": 750 },
@@ -114,7 +114,7 @@
       ]
     },
     {
-      "Meal_ID": "09",
+      "Meal_ID": 9,
       "Meal_Name": "Lentil Salad",
       "Ingredients": [
         { "Ingredient_Name": "Beluga lentils", "Weight_g": 500 },
@@ -126,7 +126,7 @@
       ]
     },
     {
-      "Meal_ID": "10",
+      "Meal_ID": 10,
       "Meal_Name": "Shepherd’s Pie",
       "Ingredients": [
         { "Ingredient_Name": "Ground Meat", "Weight_g": 600 },
@@ -141,7 +141,7 @@
       ]
     },
     {
-      "Meal_ID": "11",
+      "Meal_ID": 11,
       "Meal_Name": "Super Veggie",
       "Ingredients": [
         { "Ingredient_Name": "Black Lentils", "Weight_g": 750 },
@@ -155,7 +155,7 @@
       ]
     },
     {
-      "Meal_ID": "12",
+      "Meal_ID": 12,
       "Meal_Name": "Buddah Bowl",
       "Ingredients": [
         { "Ingredient_Name": "Sweet Potato", "Weight_g": 1000 },
@@ -170,7 +170,7 @@
       ]
     },
     {
-      "Meal_ID": "13",
+      "Meal_ID": 13,
       "Meal_Name": "Roasted Cabbage & Sweet Potato",
       "Ingredients": [
         { "Ingredient_Name": "Red Cabbage", "Weight_g": 2000 },
@@ -181,7 +181,7 @@
       ]
     },
     {
-      "Meal_ID": "14",
+      "Meal_ID": 14,
       "Meal_Name": "Beet Poke",
       "Ingredients": [
         { "Ingredient_Name": "Beetroot", "Weight_g": 1000 },
@@ -196,7 +196,7 @@
       ]
     },
     {
-      "Meal_ID": "15",
+      "Meal_ID": 15,
       "Meal_Name": "Vegetable Wok",
       "Ingredients": [
         { "Ingredient_Name": "Red onion", "Weight_g": 500 },
@@ -210,7 +210,7 @@
       ]
     },
     {
-      "Meal_ID": "16",
+      "Meal_ID": 16,
       "Meal_Name": "Lentils & Roasted Veg",
       "Ingredients": [
         { "Ingredient_Name": "Hummus", "Weight_g": 750 },
@@ -221,7 +221,7 @@
       ]
     },
     {
-      "Meal_ID": "17",
+      "Meal_ID": 17,
       "Meal_Name": "Stuffed Squash",
       "Ingredients": [
         { "Ingredient_Name": "Acorn Squash", "Weight_g": 2000 },

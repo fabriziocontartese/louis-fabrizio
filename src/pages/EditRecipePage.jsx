@@ -1,14 +1,38 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from 'react'
+import { useState, useEffect } from 'react'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 
-export default function NewRecipePage() {
+
+function EditRecipePage() {
+  const { mealId } = useParams();
   const navigate = useNavigate();
+
+  // rename to recipeId
+  const recipeId = Number(mealId);
 
   const [mealName, setMealName] = useState("");
   const [ingredients, setIngredients] = useState([
-    { Ingredient_Name: "", Weight_g: "" },
+    { Ingredient_Name: "", Weight_g: "" }
   ]);
 
+// gets recipe from local storage
+  useEffect(() => {
+    const raw = localStorage.getItem("userRecipes");
+    const userRecipes = raw ? JSON.parse(raw) : [];
+
+    const recipe = userRecipes.find((r) => String(r.Meal_ID) === String(mealId));
+
+    if (recipe) {
+      setMealName(recipe.Meal_Name);
+      setIngredients(recipe.Ingredients.length ? recipe.Ingredients : [{ Ingredient_Name: "", Weight_g: "" }]);
+    } else {
+      alert("Cannot edit built-in recipe.");
+      navigate("/");
+    }
+  }, [mealId, navigate]);
+
+
+// ingredient rows: add/remove/edit
   const addRow = () => {
     setIngredients((prev) => [...prev, { Ingredient_Name: "", Weight_g: "" }]);
   };
@@ -25,34 +49,15 @@ export default function NewRecipePage() {
     });
   };
 
-
-
-  const handleSubmit = async (e) => {
+// form sumbit 
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    // load user recipes
     const raw = localStorage.getItem("userRecipes");
     const current = raw ? JSON.parse(raw) : [];
 
-    // load database recipes
-    let builtin = [];
-      try {
-        const res = await fetch("/recipes.json");
-        builtin = await res.json();
-      } catch {
-        builtin = [];
-      }
-
-    // all recipes
-    const allRecipes = [...builtin, ...current];
-
-    // generate ID
-    const maxId = allRecipes.reduce((max, r) => Math.max(max, r.Meal_ID), 0);
-    const newId = maxId + 1;
-
-    // new recipe onject
-    const newRecipe = {
-      Meal_ID: newId,
+    const updatedRecipe = {
+      Meal_ID: recipeId,
       Meal_Name: mealName,
       Ingredients: ingredients
         .filter((i) => i.Ingredient_Name.trim() !== "")
@@ -62,26 +67,42 @@ export default function NewRecipePage() {
         })),
     };
 
+    const newRecipes = current.map((r) => (String(r.Meal_ID) === String(recipeId) ? updatedRecipe : r));
 
-    // save to localStorage (can't write to /public/recipes.json from the browser)
-    localStorage.setItem("userRecipes", JSON.stringify([...current, newRecipe]));
+    localStorage.setItem("userRecipes", JSON.stringify(newRecipes));
+    navigate(`/recipes/${recipeId}`);
+  };
 
-    // go to the recipe page
-    navigate(`/recipes/${newId}`);
+// delete button function
+  const handleDelete = () => {
+    const raw = localStorage.getItem("userRecipes");
+    const user = raw ? JSON.parse(raw) : [];
+    const updated = user.filter((r) => r.Meal_ID !== recipeId);
+    localStorage.setItem("userRecipes", JSON.stringify(updated));
+    navigate("/");
   };
 
   return (
     <div style={{ padding: 16 }}>
-      <h1 className="title">New Recipe</h1>
+      <h1 className='title'>Edit Recipe</h1>
 
       <form onSubmit={handleSubmit}>
+        <div style={{ marginBottom: 12 }}>
+          <label>Meal ID</label>
+          <input
+            type="text"
+            value={recipeId}
+            disabled
+            style={{ display: "block", width: "100%", padding: 8, backgroundColor: "#f0f0f0" }}
+          />
+        </div>
+
         <div style={{ marginBottom: 12 }}>
           <label>Meal Name</label>
           <input
             type="text"
             value={mealName}
             onChange={(e) => setMealName(e.target.value)}
-            placeholder="e.g. Lasagna"
             style={{ display: "block", width: "100%", padding: 8 }}
           />
         </div>
@@ -94,9 +115,7 @@ export default function NewRecipePage() {
                 type="text"
                 placeholder="Ingredient name"
                 value={ing.Ingredient_Name}
-                onChange={(e) =>
-                  updateRow(i, "Ingredient_Name", e.target.value)
-                }
+                onChange={(e) => updateRow(i, "Ingredient_Name", e.target.value)}
                 style={{ flex: 1, padding: 8 }}
               />
               <input
@@ -117,9 +136,16 @@ export default function NewRecipePage() {
           </button>
         </div>
         <div className='action-buttons'>
-          <button type="submit" className="save-button">Save Changes</button>
-        </div>
+          <button type="submit" className='save-button'>
+            Save Changes
+          </button>
+          <button type="button" onClick={handleDelete} className="delete-button" to="/">
+            Delete Recipe
+        </button>
+      </div>
       </form>
     </div>
   );
 }
+
+export default EditRecipePage

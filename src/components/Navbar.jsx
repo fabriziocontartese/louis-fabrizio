@@ -10,7 +10,7 @@ function Navbar() {
 
         <div className="nav-links">
           <Link to="/">
-            <button className="nav-button">Book</button>
+            <button className="nav-button">Recipe Book</button>
           </Link>
           <Link to="/new-recipe">
             <button className="nav-button">New Recipe</button>

@@ -124,7 +124,6 @@
   ────────────────────────────────────────────*/
   .pages{
     min-height: calc(100vh - 120px);
-    padding: 24px 0 48px;
   }
   
   /* ───────────────────────────────────────────
@@ -275,12 +274,12 @@
     background: rgba(9,13,30,.85);   
     border-top: 1px solid rgba(255,255,255,.08);
     padding: 20px;
-  
     display: flex;
     align-items: center;
     justify-content: space-between; 
     gap: 16px;
     color: var(--muted);
+
   }
   
   #footer p {
@@ -302,6 +301,21 @@
 /* ───────────────────────────────────────────
    Book Page Cards (dark theme fix)
 ────────────────────────────────────────────*/
+<<<<<<< HEAD
+=======
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  margin-bottom: 10;
+}
+.bookPage {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+>>>>>>> 7bff609 (auto generate meal ID)
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -314,8 +328,13 @@
   align-items: center;
   text-align: center;
 
+<<<<<<< HEAD
   background: rgba(255, 255, 255, 0.04); /* subtle dark card */
   border: 1px solid rgba(255, 255, 255, 0.1);
+=======
+  background: #2e7cf6;
+  border: 1px solid #ccc;
+>>>>>>> 7bff609 (auto generate meal ID)
   border-radius: 12px;
   padding: 16px;
 
@@ -352,6 +371,7 @@
   margin-bottom: 12px;
 }
 
+<<<<<<< HEAD
 .recipeCardActions a {
   font-size: 0.9rem;
   font-weight: 500;
@@ -361,4 +381,76 @@
 
 .recipeCardActions a:hover {
   text-decoration: underline;
+=======
+.recipeCardTitle {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 0 0 4px;
+}
+
+.recipeCardId {
+  font-size: 0.9rem;
+  color: #121935;
+  margin-bottom: 8px;
+}
+
+.recipeCardActions {
+  color: #fff;
+  background-color: mediumvioletred;
+  padding: 2px 10px;
+  border: 0.5px solid #fff;
+  border-radius: 12px;
+  margin-top: auto;
+>>>>>>> 7bff609 (auto generate meal ID)
+}
+
+ /* ───────────────────────────────────────────
+   Recipe Page
+────────────────────────────────────────────*/
+.recipe-heading {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+
+.recipe-heading h1 {
+  margin: 0;
+  line-height: 1;
+}
+
+.edit-icon-img {
+  width: 30px;
+  cursor: pointer; 
+  display: block;
+}
+
+ /* ───────────────────────────────────────────
+   Edit Recipe Page
+────────────────────────────────────────────*/
+.action-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-button {
+  margin-left: 16px;
+  padding: 3px 12px;
+  background-color: red;
+  color: white;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.save-button {
+  padding: 3px 12px;
+  background-color: green;
+  color: white;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  cursor: pointer;
 }
