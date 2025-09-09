@@ -301,8 +301,6 @@
 /* ───────────────────────────────────────────
    Book Page Cards (dark theme fix)
 ────────────────────────────────────────────*/
-<<<<<<< HEAD
-=======
 .title {
   display: flex;
   justify-content: center;
@@ -315,7 +313,6 @@
   font-family: Arial, sans-serif;
 }
 
->>>>>>> 7bff609 (auto generate meal ID)
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -328,13 +325,8 @@
   align-items: center;
   text-align: center;
 
-<<<<<<< HEAD
-  background: rgba(255, 255, 255, 0.04); /* subtle dark card */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-=======
   background: #2e7cf6;
   border: 1px solid #ccc;
->>>>>>> 7bff609 (auto generate meal ID)
   border-radius: 12px;
   padding: 16px;
 
@@ -371,17 +363,16 @@
   margin-bottom: 12px;
 }
 
-<<<<<<< HEAD
 .recipeCardActions a {
   font-size: 0.9rem;
   font-weight: 500;
-  color: #2e7cf6; /* accent blue */
   text-decoration: none;
 }
 
 .recipeCardActions a:hover {
   text-decoration: underline;
-=======
+}
+
 .recipeCardTitle {
   color: #fff;
   font-size: 1.3rem;
@@ -400,9 +391,8 @@
   background-color: mediumvioletred;
   padding: 2px 10px;
   border: 0.5px solid #fff;
-  border-radius: 12px;
+  border-radius: 8px;
   margin-top: auto;
->>>>>>> 7bff609 (auto generate meal ID)
 }
 
  /* ───────────────────────────────────────────
