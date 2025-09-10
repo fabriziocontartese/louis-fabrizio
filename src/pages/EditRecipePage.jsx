@@ -88,16 +88,6 @@ function EditRecipePage() {
 
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: 12 }}>
-          <label>Meal ID</label>
-          <input
-            type="text"
-            value={recipeId}
-            disabled
-            style={{ display: "block", width: "100%", padding: 8, backgroundColor: "#f0f0f0" }}
-          />
-        </div>
-
-        <div style={{ marginBottom: 12 }}>
           <label>Meal Name</label>
           <input
             type="text"

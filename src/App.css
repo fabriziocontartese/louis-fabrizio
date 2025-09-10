@@ -324,7 +324,6 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-
   background: #2e7cf6;
   border: 1px solid #ccc;
   border-radius: 12px;
@@ -339,20 +338,32 @@
   background: rgba(255, 255, 255, 0.07);
   border-color: rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+
 }
 
 .recipeCardTitle {
-  font-size: 1.1rem;
-  font-weight: 600;
+  color: white;
+  background-color: #121935;
+  border: 2px solid #2e7cf6;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 2 rem;
+  font-weight: bold;
   margin: 0 0 4px;
-  color: #fff; /* bright white text */
-}
+ }
 
-.recipeCardId {
+
+
+.recipeCardIngredients {
   font-size: 0.9rem;
-  color: #bbb; /* muted gray */
+  color: #fff;
+  background-color: #121935;
+  border: 2px solid #2e7cf6;
+  border-radius: 10px;
+  padding: 5px;
   margin-bottom: 8px;
 }
+
 
 .recipeCard img {
   width: 100%;
@@ -362,6 +373,8 @@
   background-color: #222;
   margin-bottom: 12px;
 }
+
+
 
 .recipeCardActions a {
   font-size: 0.9rem;
@@ -373,12 +386,20 @@
   text-decoration: underline;
 }
 
-.recipeCardTitle {
-  color: #fff;
-  font-size: 1.3rem;
-  font-weight: bold;
-  margin: 0 0 4px;
+/* group transition */
+.recipeCardTitle,
+.recipeCardIngredients {
+  transition: opacity 0.3s ease;
+  opacity: 0;
 }
+
+.recipeCard:hover .recipeCardTitle,
+.recipeCard:hover .recipeCardIngredients {
+  opacity: 1;
+}
+
+
+
 
 .recipeCardId {
   font-size: 0.9rem;
@@ -398,17 +419,25 @@
  /* ───────────────────────────────────────────
    Recipe Page
 ────────────────────────────────────────────*/
+.recipePage-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .recipe-heading {
   display: flex;
   justify-content: center;
   align-items: flex-end;
   gap: 20px;
+  padding-bottom: 50px;
 }
 
 
 .recipe-heading h1 {
   margin: 0;
   line-height: 1;
+  text-decoration: underline;
 }
 
 .edit-icon-img {
@@ -416,6 +445,23 @@
   cursor: pointer; 
   display: block;
 }
+
+.ingredients-list {
+  width: 500px;
+  height: 300px;
+  border: 5px solid #2e7cf6;
+  border-radius: 10px;
+  padding-right: 30px;
+  background-color: white;
+  color: #0b1020;
+}
+.recipe-image img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border: 5px solid #2e7cf6;
+}
+
 
  /* ───────────────────────────────────────────
    Edit Recipe Page

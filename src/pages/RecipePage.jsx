@@ -45,18 +45,36 @@ function RecipePage() {
           />
         </Link>
       </div>
-      <ul>
-        {recipe.Ingredients.map((ing, i) => (
-          <li key={i}>
-            {ing.Ingredient_Name}
-            {ing.Weight_g ? ` (${ing.Weight_g}g)` : ""}
-          </li>
-        ))}
-      </ul>
+      <div className="recipePage-content">
+        <div className="meal-image">
+          {recipe.Image && (
+            <div className="recipe-image">
+              <img 
+                src={recipe.Image} 
+                alt={recipe.Meal_Name} 
+                style={{ maxWidth: "300px", borderRadius: "12px", objectFit: "cover" }} 
+              />
+            </div>
+          )}
+        </div>
+        <div className="ingredients-list">
+        <ul>
+          {recipe.Ingredients.map((ing, i) => (
+            <li key={i}>
+              {ing.Ingredient_Name}
+              {ing.Weight_g ? ` (${ing.Weight_g}g)` : ""}
+            </li>
+          ))}
+        </ul>
+        </div>
+      </div>
 
       <div className="recipe-page-nav">
         <Link to="/">← Back to all recipes</Link>
       </div>
+
+
+
     </div>
   );
 }

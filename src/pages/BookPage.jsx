@@ -14,12 +14,17 @@ function BookPage() {
   return (
     <div className="bookPage">
       <div className="header">
-        <h1 className="title">All Recipes</h1>
+        <h1 className="title">Recipe Book</h1>
       </div>
 
       <div className="grid">
         {recipes.map((meal) => (
-          <div key={meal.Meal_ID} className="recipeCard">
+          <div key={meal.Meal_ID} className="recipeCard"     
+          style={{
+      backgroundImage: `url(${meal.Image})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}>
             <h2 className="recipeCardTitle">{meal.Meal_Name}</h2>
             <p className="recipeCardIngredients">Ingredients: {meal.Ingredients.length}</p>
             <div className="recipeCardActions">
