@@ -21,7 +21,7 @@ function BookPage() {
         {recipes.map((meal) => (
           <div key={meal.Meal_ID} className="recipeCard">
             <h2 className="recipeCardTitle">{meal.Meal_Name}</h2>
-            <p className="recipeCardId">ID: {meal.Meal_ID}</p>
+            <p className="recipeCardIngredients">Ingredients: {meal.Ingredients.length}</p>
             <div className="recipeCardActions">
               <Link to={`/recipes/${meal.Meal_ID}`} className="recipeCardSeeFull">
                 See full recipe
