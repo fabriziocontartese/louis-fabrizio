@@ -490,3 +490,37 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
+ /* ───────────────────────────────────────────
+   New Recipe Page
+────────────────────────────────────────────*/
+.form-details {
+  display: flex;
+  align-items: top;
+  gap: 10%;
+}
+
+.meal-image-box {
+  width: 250px;
+  height: 250px;
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+#mealImageInput {
+  display: none;
+}
+
+.plus-sign {
+  font-size: 100px;
+}
+
+.recipe-details {
+  width: 60%;
+}
