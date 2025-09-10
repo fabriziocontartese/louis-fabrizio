@@ -5,7 +5,7 @@ export default function NewRecipePage() {
   const navigate = useNavigate();
 
   const [mealName, setMealName] = useState("");
-   const [mealImage, setMealImage] = useState("");
+  const [mealImage, setMealImage] = useState("");
   const [ingredients, setIngredients] = useState([
     { Ingredient_Name: "", Weight_g: "" },
   ]);
@@ -121,6 +121,8 @@ export default function NewRecipePage() {
             </button>
           </div>
         </div>
+
+        
         <div style={{ marginBottom: 12 }}>
           <h2>Meal Image</h2>
           <div className="meal-image-box" onClick={() => document.getElementById("mealImageInput").click()}>

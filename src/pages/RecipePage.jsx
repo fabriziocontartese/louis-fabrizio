@@ -9,6 +9,7 @@ function RecipePage() {
 
 
 
+
   useEffect(() => {
     fetch("/recipes.json")
       .then((res) => res.json())

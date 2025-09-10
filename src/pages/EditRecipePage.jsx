@@ -11,6 +11,7 @@ function EditRecipePage() {
   const recipeId = Number(mealId);
 
   const [mealName, setMealName] = useState("");
+  const [mealImage, setMealImage] = useState("");
   const [ingredients, setIngredients] = useState([
     { Ingredient_Name: "", Weight_g: "" }
   ]);
@@ -25,6 +26,7 @@ function EditRecipePage() {
     if (recipe) {
       setMealName(recipe.Meal_Name);
       setIngredients(recipe.Ingredients.length ? recipe.Ingredients : [{ Ingredient_Name: "", Weight_g: "" }]);
+      setMealImage(recipe.Image || "");
     } else {
       alert("Cannot edit built-in recipe.");
       navigate("/");
@@ -59,6 +61,7 @@ function EditRecipePage() {
     const updatedRecipe = {
       Meal_ID: recipeId,
       Meal_Name: mealName,
+      Image: mealImage,
       Ingredients: ingredients
         .filter((i) => i.Ingredient_Name.trim() !== "")
         .map((i) => ({
@@ -87,44 +90,74 @@ function EditRecipePage() {
       <h1 className='title'>Edit Recipe</h1>
 
       <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: 12 }}>
-          <label>Meal Name</label>
-          <input
-            type="text"
-            value={mealName}
-            onChange={(e) => setMealName(e.target.value)}
-            style={{ display: "block", width: "100%", padding: 8 }}
-          />
-        </div>
-
-        <div style={{ marginBottom: 12 }}>
-          <h3>Ingredients</h3>
-          {ingredients.map((ing, i) => (
-            <div key={i} style={{ display: "flex", gap: 8, marginBottom: 8 }}>
+        <div className="form-details">
+          <div className="recipe-details">
+            <div style={{ marginBottom: 12 }}>
+              <h2>Meal Name</h2>
               <input
                 type="text"
-                placeholder="Ingredient name"
-                value={ing.Ingredient_Name}
-                onChange={(e) => updateRow(i, "Ingredient_Name", e.target.value)}
-                style={{ flex: 1, padding: 8 }}
+                value={mealName}
+                onChange={(e) => setMealName(e.target.value)}
+                style={{ display: "block", width: "100%", padding: 8 }}
               />
-              <input
-                type="number"
-                placeholder="Weight (g)"
-                value={ing.Weight_g}
-                onChange={(e) => updateRow(i, "Weight_g", e.target.value)}
-                style={{ width: 140, padding: 8 }}
-                min="0"
-              />
-              <button type="button" onClick={() => removeRow(i)}>
-                Remove
+            </div>
+
+            <div style={{ marginBottom: 12 }}>
+              <h2>Ingredients</h2>
+              {ingredients.map((ing, i) => (
+                <div key={i} style={{ display: "flex", gap: 8, marginBottom: 8 }}>
+                  <input
+                    type="text"
+                    placeholder="Ingredient name"
+                    value={ing.Ingredient_Name}
+                    onChange={(e) => updateRow(i, "Ingredient_Name", e.target.value)}
+                    style={{ flex: 1, padding: 8 }}
+                  />
+                  <input
+                    type="number"
+                    placeholder="Weight (g)"
+                    value={ing.Weight_g}
+                    onChange={(e) => updateRow(i, "Weight_g", e.target.value)}
+                    style={{ width: 140, padding: 8 }}
+                    min="0"
+                  />
+                  <button type="button" onClick={() => removeRow(i)}>
+                    Remove
+                  </button>
+                </div>
+              ))}
+              <button type="button" onClick={addRow}>
+                + Add ingredient
               </button>
             </div>
-          ))}
-          <button type="button" onClick={addRow}>
-            + Add ingredient
-          </button>
+          </div>
+
+          <div style={{ marginBottom: 12 }}>
+            <h2>Meal Image</h2>
+            <div className="meal-image-box" onClick={() => document.getElementById("mealImageInput").click()}>
+              {mealImage ? (
+                <img src={mealImage} alt="Meal Preview" />
+              ) : (
+                <span className="plus-sign">+</span>
+              )}
+              <input
+                id="mealImageInput"
+                type="file"
+                accept="image/*"
+                onChange={(e) => {
+                  const file = e.target.files[0];
+                  if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => setMealImage(e.target.result);
+                    reader.readAsDataURL(file);
+                  }
+                }}
+              />
+            </div>
+          </div>
         </div>
+
+
         <div className='action-buttons'>
           <button type="submit" className='save-button'>
             Save Changes
