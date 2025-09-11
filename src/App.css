@@ -142,6 +142,7 @@
   border-radius: var(--radius);
   padding: 28px;
   box-shadow: var(--shadow);
+  margin-top: 20px;
 }
 
 #about-hero-text h1{
@@ -456,8 +457,8 @@
   border: 5px solid #1bbafb;
   border-radius: 10px;
   padding-right: 30px;
-  background-color: var(--card);
-  color: #0b1020;
+  background-color: var(--text);
+  color: #fff;
 }
 .recipe-image img {
   width: 300px;
