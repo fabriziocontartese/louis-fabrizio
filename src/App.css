@@ -2,11 +2,11 @@
    RESET & THEME
 ────────────────────────────────────────────*/
 :root{
-    --bg: #0b1020;
-    --card: #121935;
-    --text: #e8eefc;
+    --bg: #fffae0;
+    --card: #def8de;
+    --text: rgba(10, 73, 0);
     --muted: #aab5d1;
-    --brand: #2e7cf6;
+    --brand: #1bbafb;
     --brand-2: #00d4ff;
     --ring: rgba(46,124,246,.35);
     --radius: 12px;
@@ -48,7 +48,7 @@
     position: sticky;
     top: 0;
     z-index: 10;
-    background: rgba(9,13,30,.7);
+    background: rgba(10, 73, 0, 0.7);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255,255,255,.06);
   }
@@ -56,7 +56,7 @@
   .nav-container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 12px 20px;
+    padding: 0px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -67,12 +67,13 @@
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    padding: 12px 20px;
+
   }
   
   #nav-logo {
-    width: 150px;
-    height: 60px;
+    width: 240px;
+    height: 100px;
+    padding: 0;
     background-image: url('/recipeX-logo.png');
     background-repeat: no-repeat;
     background-size: contain;
@@ -94,9 +95,11 @@
     cursor: pointer;
     transition: transform .08s ease, box-shadow .2s ease, border-color .2s ease;
     box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+    background-color: var(--card);
   }
   
   .nav-button:hover{
+    background-color: #00d4ff;
     border-color: rgba(255,255,255,.24);
     box-shadow: 0 6px 18px rgba(0,0,0,.25), 0 0 0 4px var(--ring);
     transform: translateY(-1px);
@@ -134,7 +137,7 @@
   grid-template-columns: 1fr;
   gap: 20px;
   align-items: center;
-  background: linear-gradient(135deg, rgba(46,124,246,.12), rgba(0,212,255,.10));
+  background: var(--card);
   border: 1px solid rgba(255,255,255,.08);
   border-radius: var(--radius);
   padding: 28px;
@@ -149,7 +152,7 @@
 
 #about-hero-text p{
   margin: 0;
-  color: var(--muted);
+  color: var(--text);
   font-size: 1.05rem;
 }
 
@@ -271,7 +274,7 @@
   ────────────────────────────────────────────*/
 #footer {
     width: 100%;                      
-    background: rgba(9,13,30,.85);   
+    background: rgba(10, 73, 0);   
     border-top: 1px solid rgba(255,255,255,.08);
     padding: 20px;
     display: flex;
@@ -279,13 +282,14 @@
     justify-content: space-between; 
     gap: 16px;
     color: var(--muted);
-
+    margin-top: 50px;
   }
   
   #footer p {
     margin: 0;
     flex: 1;
     text-align: center;
+    color: #fff;
   }
   
   #footer button {
@@ -293,7 +297,7 @@
     padding: 0 14px;
     border-radius: 10px;
     border: 1px solid rgba(255,255,255,.12);
-    background: rgba(255,255,255,.04);
+    background: var(--card);
     color: var(--text);
     cursor: pointer;
   }
@@ -324,7 +328,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background: #2e7cf6;
+  background: #1bbafb;
   border: 1px solid #ccc;
   border-radius: 12px;
   padding: 16px;
@@ -343,8 +347,8 @@
 
 .recipeCardTitle {
   color: white;
-  background-color: #121935;
-  border: 2px solid #2e7cf6;
+  background-color: rgba(10, 73, 0, 0.8);
+  border: 2px solid #1bbafb;
   border-radius: 10px;
   padding: 5px;
   font-size: 2 rem;
@@ -356,9 +360,9 @@
 
 .recipeCardIngredients {
   font-size: 0.9rem;
-  color: #fff;
-  background-color: #121935;
-  border: 2px solid #2e7cf6;
+  color: var(--card);
+  background-color: rgba(10, 73, 0, 0.8);
+  border: 2px solid #1bbafb;
   border-radius: 10px;
   padding: 5px;
   margin-bottom: 8px;
@@ -449,17 +453,17 @@
 .ingredients-list {
   width: 500px;
   height: 300px;
-  border: 5px solid #2e7cf6;
+  border: 5px solid #1bbafb;
   border-radius: 10px;
   padding-right: 30px;
-  background-color: white;
+  background-color: var(--card);
   color: #0b1020;
 }
 .recipe-image img {
   width: 300px;
   height: 300px;
   object-fit: cover;
-  border: 5px solid #2e7cf6;
+  border: 5px solid #1bbafb;
 }
 
 
@@ -511,6 +515,7 @@
   cursor: pointer;
   overflow: hidden;
   position: relative;
+  background-color: #fff;
 }
 
 #mealImageInput {
